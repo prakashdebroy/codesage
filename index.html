@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CODE SAGE — NFSU Tripura Coding Club</title>
+<meta name="description" content="Code Sage, the coding club of National Forensic Sciences University, Tripura Campus.">
+<style>
+:root{color-scheme:dark;--bg:#030504;--fg:#e8f5e4;--mut:#7f9a80;--g:#7CFC5A;--line:#173a1c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif;overflow-x:hidden}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}
+
+/* Typewriter Preloader */
+#pre{position:fixed;inset:0;background:var(--bg);z-index:100;display:grid;place-items:center;padding:24px;transition:opacity .7s,visibility .7s}
+#pre.out{opacity:0;visibility:hidden}
+.tw-box{display:flex;align-items:center;justify-content:center;min-height:1.2em;text-align:center}
+#tw{font-weight:800;color:var(--g);letter-spacing:.08em;text-shadow:0 0 28px #7CFC5A66;font-size:clamp(34px,9vw,116px);line-height:1.05;white-space:nowrap}
+#tw.boot{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-weight:500;font-size:clamp(18px,3.5vw,32px);letter-spacing:.22em;color:var(--mut);text-shadow:none}
+.cur{display:inline-block;width:.1em;height:.95em;background:var(--g);margin-left:8px;vertical-align:middle;box-shadow:0 0 14px var(--g);animation:blink .75s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;background:linear-gradient(#030504ee,#03050400)}
+nav b{letter-spacing:.2em;font-size:14px}nav b i{color:var(--g);font-style:normal}
+nav div{display:flex;gap:22px;font-size:13px}
+nav a{color:var(--mut);text-decoration:none;transition:color .2s}nav a:hover{color:var(--g)}
+@media(max-width:600px){
+  #hero{padding-bottom:calc(10vh - 10px)}
+  nav{padding:12px 4vw}
+  nav b{font-size:12px}
+  nav div{position:absolute;top:58px;left:4vw;right:4vw;display:none;flex-direction:column;gap:0;padding:8px;border:1px solid var(--line);background:#050907f2;box-shadow:0 16px 36px #000b}
+  nav div.open{display:flex}
+  nav div a{padding:12px 14px;border-bottom:1px solid #173a1c55;font-size:13px}
+  nav div a:last-child{border-bottom:0}
+  .menu-toggle{display:grid!important}
+}
+.menu-toggle{display:none;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:4px;background:#050907cc;color:var(--g);font-size:20px;cursor:pointer}
+#hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 5vw 10vh}
+#cv{position:absolute;inset:0;width:100%;height:100%}
+.hero-lockup{position:relative;width:max-content;max-width:90vw;margin:0 0 8px}
+.nfsu-logo{display:block;width:clamp(280px,32vw,480px);height:auto;filter:brightness(1.35) contrast(1.05) drop-shadow(0 10px 18px #000b)}
+#hero h1{position:relative;margin:0;font-size:clamp(52px,14vw,200px);line-height:.88;letter-spacing:-.04em;font-weight:800;pointer-events:none}
+#hero h1 em{font-style:normal;color:var(--g);text-shadow:0 0 40px #7CFC5A55}
+#hero p{position:relative;max-width:520px;color:var(--mut);margin:18px 0 0;line-height:1.6}
+.cta{position:relative;display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.btn{padding:12px 22px;border:1px solid var(--g);color:var(--g);text-decoration:none;font-size:14px;border-radius:2px;transition:.2s}
+.btn.f,.btn:hover{background:var(--g);color:#031004}
+.mq{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:14px 0}
+.mq div{display:inline-block;animation:mq 28s linear infinite;font-size:clamp(20px,4vw,44px);font-weight:700;color:transparent;-webkit-text-stroke:1px var(--g)}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:12vh 5vw}
+.lab{color:var(--g);font-size:12px;letter-spacing:.25em;margin-bottom:18px}
+.big{font-size:clamp(28px,5.5vw,70px);line-height:1.08;letter-spacing:-.03em;font-weight:700;margin:0;max-width:1100px}
+.big .w{display:inline-block;opacity:.18;transition:opacity .4s,color .4s}.big .w.on{opacity:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:48px}
+.card{background:var(--bg);padding:28px;transition:background .25s}.card:hover{background:#08140a}
+.card .n{color:var(--g);font-size:12px}.card h3{margin:14px 0 8px;font-size:22px}.card p{margin:0;color:var(--mut);line-height:1.55;font-size:15px}
+.ev{display:grid;grid-template-columns:110px 1fr auto;gap:18px;align-items:start;padding:22px 0;border-bottom:1px solid var(--line)}
+.ev:first-of-type{border-top:1px solid var(--line)}
+.ev .d{color:var(--g);font-size:13px}.ev h4{margin:0;font-size:clamp(18px,2.6vw,28px)}.ev span.t{color:var(--mut);font-size:12px}
+@media(max-width:600px){.ev{grid-template-columns:1fr;gap:6px}}
+.ev p{color:var(--mut);margin:8px 0 10px;line-height:1.55;font-size:15px;max-width:720px}.ev a{color:var(--g);font-size:13px;margin-right:16px;text-decoration:none}.m a{display:block;margin-top:10px;color:var(--g);font-size:12px;text-decoration:none}.stats{display:flex;flex-wrap:wrap;gap:40px;margin-top:48px}
+.stats b{display:block;font-size:clamp(40px,7vw,84px);color:var(--g);line-height:1}.stats span{color:var(--mut);font-size:13px}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:40px}
+.m{display:grid;grid-template-columns:76px 1fr;column-gap:14px;align-items:center;border:1px solid var(--line);padding:16px}.m i{display:grid;place-items:center;grid-row:1 / span 3;width:76px;height:76px;border:1px solid var(--g);border-radius:50%;overflow:hidden}.m i img{width:100%;height:100%;display:block;object-fit:cover}
+.m b{display:block}.m span{color:var(--mut);font-size:13px}
+@media(max-width:600px){
+  .hero-lockup{position:relative;top:auto;left:auto;z-index:3;margin:0 0 10px;transform:none}
+  .nfsu-logo{width:clamp(150px,46vw,190px)}
+  #hero .lab{font-size:9px;letter-spacing:.16em;white-space:nowrap}
+  .team{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .m{grid-template-columns:62px 1fr;column-gap:10px;padding:12px}
+  .m i{width:62px;height:62px}
+  .m b{font-size:14px;line-height:1.25}
+  .m span{font-size:12px}
+}
+#join{text-align:center;border-top:1px solid var(--line)}
+#join a.mail{display:inline-block;margin-top:28px;font-size:clamp(20px,4vw,48px);color:var(--g);text-decoration:none;border-bottom:1px solid var(--g)}
+footer{padding:28px 5vw;color:var(--mut);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px solid var(--line)}
+.rv{opacity:0;transform:translateY(30px);transition:.8s}.rv.on{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div id="pre">
+  <div class="tw-box">
+    <span id="tw" class="boot"></span><span class="cur"></span>
+  </div>
+</div>
+
+<nav><b>CODE<i>/</i>SAGE</b><div id="main-menu"><a href="#about">About</a><a href="#do">What we do</a><a href="events/events.html">Events</a><a href="team.html">Team</a><a href="#join">Join</a></div><button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-menu">☰</button></nav>
+
+<header id="hero">
+<canvas id="cv"></canvas>
+<div class="hero-lockup">
+  <img class="nfsu-logo" src="assets/nfsu-logo.png" alt="National Forensic Sciences University">
+</div>
+<div class="lab mono" style="position:relative">// CODING CLUB · NFSU TRIPURA CAMPUS</div>
+<h1>CODE<br><em>SAGE</em></h1>
+<p>“Talk is cheap. Show me the code.”</p>
+<div class="cta"><a class="btn f" href="#join">Register now</a><a class="btn" href="events/events.html">Events</a></div>
+</header>
+
+<div class="mq mono"><div>CODE · HACK · LEARN · BUILD · SECURE · SHARE · CODE · HACK · LEARN · BUILD · SECURE · SHARE · CODE · HACK · LEARN · BUILD · SECURE · SHARE · CODE · HACK · LEARN · BUILD · SECURE · SHARE · </div></div>
+
+<section id="about">
+<div class="lab mono">01 / ABOUT</div>
+<h2 class="big" id="manifesto">Code Sage is the student-led coding community of NFSU Tripura Campus, running coding workshops, cybersecurity sessions, hackathons and technical projects.</h2>
+<div class="stats">
+<div><b data-n="8" class="mono">0</b><span>Events organised</span></div>
+<div><b data-n="70" class="mono">0</b><span>Students at Fund My Crazy</span></div>
+<div><b data-n="33" class="mono">0</b><span>At the first Python session</span></div>
+</div>
+</section>
+
+<section id="do">
+<div class="lab mono">02 / WHAT WE DO</div>
+<h2 class="big rv">Four tracks. One owl.</h2>
+<div class="grid">
+<div class="card rv"><div class="n mono">&lt;01&gt;</div><h3>Coding Workshops</h3><p>Structured courses such as our two-month Basic Python Programming course.</p></div>
+<div class="card rv"><div class="n mono">&lt;02&gt;</div><h3>Hackathons</h3><p>Internal hackathons like the NFSU SMART Hackathon and Smart India Hackathon 2026 selection.</p></div>
+<div class="card rv"><div class="n mono">&lt;03&gt;</div><h3>Cybersecurity</h3><p>Ethical hacking sessions and CTF competitions across web security, cryptography and forensics.</p></div>
+<div class="card rv"><div class="n mono">&lt;04&gt;</div><h3>Innovation</h3><p>Ideation events like Fund My Crazy, run with Google Student Ambassadors.</p></div>
+</div>
+</section>
+
+<section id="join">
+<div class="lab mono">05 / JOIN</div>
+<h2 class="big rv" style="margin:0 auto">Hurry up! Register now.</h2>
+<p style="color:var(--mut);margin:18px 0 0">Join the Code Sage community and be part of our next event.</p>
+<a class="mail mono" href="https://docs.google.com/forms/d/e/1FAIpQLScGRMsOwZC18BfvMPI6xEQ4J_0vjn9wZ2SfzLpLJyp47Nubxg/viewform?usp=header">Register now →</a>
+</section>
+
+<footer class="mono"><span>© 2026 CODE SAGE · Coding Club, NFSU Tripura Campus</span><span>&lt;/&gt; built with curiosity</span></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+var menuToggle=document.querySelector(".menu-toggle");
+var mainMenu=document.getElementById("main-menu");
+if(menuToggle&&mainMenu){
+ menuToggle.addEventListener("click",function(){
+  var open=mainMenu.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded",open?"true":"false");
+  menuToggle.setAttribute("aria-label",open?"Close navigation":"Open navigation");
+  menuToggle.textContent=open?"×":"☰";
+ });
+ mainMenu.querySelectorAll("a").forEach(function(link){
+  link.addEventListener("click",function(){
+   mainMenu.classList.remove("open");
+   menuToggle.setAttribute("aria-expanded","false");
+   menuToggle.textContent="☰";
+  });
+ });
+}
+// ---------- Preloader: Typewriter ("Booting..." -> "CODE SAGE") ----------
+var pre=document.getElementById("pre"),tw=document.getElementById("tw");
+function typeText(str,speed,cb){
+  var i=0;tw.textContent="";
+  var t=setInterval(function(){
+    tw.textContent+=str.charAt(i++);
+    if(i>=str.length){clearInterval(t);if(cb)setTimeout(cb,420)}
+  },speed);
+}
+typeText("Booting...",65,function(){
+  tw.textContent="";
+  tw.classList.remove("boot");
+  typeText("CODE SAGE",90,function(){
+    setTimeout(function(){pre.classList.add("out")},350);
+  });
+});
+
+// Start pointer far off-screen (99, 99) so untouched mobile screens don't trigger a center repulsion hole
+var cv=document.getElementById("cv"),M={tx:99,ty:99,nx:99,ny:99,rx:0,ry:0},sp=0;
+function boot(img){
+ if(!window.THREE)return;
+ var T=THREE,R=new T.WebGLRenderer({canvas:cv,alpha:true,antialias:false});R.setPixelRatio(Math.min(devicePixelRatio||1,2));
+ var S=new T.Scene(),C=new T.PerspectiveCamera(45,1,.1,100);C.position.z=9;
+ var W=600,H=650;
+ var o=document.createElement("canvas");o.width=W;o.height=H;var c=o.getContext("2d");c.drawImage(img,0,0,W,H);
+ var d=c.getImageData(0,0,W,H).data,pos=[],rnd=[];
+ 
+ // Scan pixels and select ONLY the green logo strokes/lines
+ for(var y=0;y<H;y+=1)for(var x=0;x<W;x+=1){
+   var idx=(y*W+x)*4;
+   var r=d[idx], g=d[idx+1], b=d[idx+2], a=d[idx+3];
+   if(a > 50 && g > 90 && g > r + 20){
+     pos.push((x-W/2)/122,-(y-H/2)/122,0);
+     rnd.push(Math.random(),Math.random(),Math.random());
+   }
+ }
+ var g=new T.BufferGeometry();
+ g.setAttribute("position",new T.Float32BufferAttribute(pos,3));
+ g.setAttribute("aR",new T.Float32BufferAttribute(rnd,3));
+ 
+ var U={uT:{value:0},uM:{value:new T.Vector2(99,99)},uS:{value:0},uSize:{value:16}};
+ var mat=new T.ShaderMaterial({uniforms:U,transparent:true,depthWrite:false,blending:T.AdditiveBlending,
+ vertexShader:"uniform float uT,uS,uSize;uniform vec2 uM;attribute vec3 aR;varying float vF;varying float vA;void main(){vec3 p=position;"+
+ "p.z+=(aR.z-.5)*.28+sin(uT*.8+aR.x*6.28)*.025;"+
+ "p.xy+=vec2(sin(uT+aR.y*6.28),cos(uT*.9+aR.x*6.28))*.007;"+
+ "vec2 dm=p.xy-uM;float dist=length(dm);float f=smoothstep(1.5,0.,dist);p.xy+=normalize(dm+vec2(1e-4))*f*1.05;p.z+=f*1.4;"+
+ "p+=(aR-.5)*uS*4.;vF=f;vA=1.-uS;vec4 mv=modelViewMatrix*vec4(p,1.);gl_PointSize=uSize*(.65+aR.x*.4)*(1.+f*1.35)/-mv.z;gl_Position=projectionMatrix*mv;}",
+ fragmentShader:"varying float vF;varying float vA;void main(){float r=length(gl_PointCoord-.5);if(r>.5)discard;float a=smoothstep(.5,.05,r);vec3 col=mix(vec3(.486,.988,.353),vec3(.9,1.,.85),vF);gl_FragColor=vec4(col,a*.95*vA);}"});
+ var pts=new T.Points(g,mat);S.add(pts);
+ var wide=true;
+ function rs(){var w=cv.clientWidth,h=cv.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix();
+  wide=w/h>1.1;var hh=Math.tan(22.5*Math.PI/180)*9,hw=hh*C.aspect;
+  pts.scale.setScalar(wide?Math.min(1.05,hh*1.55/5.4):Math.min(.78,hw*1.65/4.2,hh*1.08/5.3));
+  pts.position.set(wide?hw*.42:0,wide?0:hh*.40,0);rs.hw=hw;rs.hh=hh}
+ rs();addEventListener("resize",rs);
+ function pm(e){var t=e.touches?e.touches[0]:e,r=cv.getBoundingClientRect();
+  var nx=((t.clientX-r.left)/r.width)*2-1,ny=-(((t.clientY-r.top)/r.height)*2-1);
+  if(M.nx>50){M.tx=nx;M.ty=ny}
+  M.nx=nx;M.ny=ny;M.rx=nx;M.ry=ny}
+ function pl(){M.nx=99;M.ny=99;M.tx=99;M.ty=99;M.rx=0;M.ry=0}
+ addEventListener("mousemove",pm);
+ addEventListener("touchstart",pm,{passive:true});
+ addEventListener("touchmove",pm,{passive:true});
+ addEventListener("touchend",pl,{passive:true});
+ document.addEventListener("mouseleave",pl);
+ var clk=new T.Clock();
+ (function loop(){requestAnimationFrame(loop);sp=Math.min(1,scrollY/(innerHeight*.9));if(scrollY>innerHeight*1.3)return;
+  if(M.nx<50){M.tx+=(M.nx-M.tx)*.14;M.ty+=(M.ny-M.ty)*.14}
+  var s=pts.scale.x;
+  U.uT.value=clk.getElapsedTime();U.uS.value+=(sp-U.uS.value)*.1;
+  U.uM.value.set(M.tx>50?99:(M.tx*rs.hw-pts.position.x)/s,M.ty>50?99:(M.ty*rs.hh-pts.position.y)/s);
+  pts.rotation.y+=(M.rx*.3-pts.rotation.y)*.06;pts.rotation.x+=(-M.ry*.18-pts.rotation.x)*.06;
+  R.render(S,C)})();
+}
+
+// Load your exact uploaded transparent logo image file
+var img=new Image();
+img.onload=function(){boot(img)};
+img.src="assets/codesage_logo_transparent.png";
+
+// ---------- Scroll reveal + word highlight + counters ----------
+var m=document.getElementById("manifesto");m.innerHTML=m.textContent.split(" ").map(function(w){return '<span class="w">'+w+'</span>'}).join(" ");
+var ws=m.querySelectorAll(".w");
+function sc(){var r=m.getBoundingClientRect(),p=Math.min(1,Math.max(0,(innerHeight*.85-r.top)/(r.height+innerHeight*.3)));
+ var n=Math.round(p*ws.length);ws.forEach(function(w,i){w.classList.toggle("on",i<n)})}
+addEventListener("scroll",sc,{passive:true});sc();
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll(".rv").forEach(function(e,i){e.style.transitionDelay=(i%4)*.08+"s";io.observe(e)});
+var co=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;co.unobserve(e.target);var n=+e.target.dataset.n,s=performance.now();
+ (function f(t){var k=Math.min(1,(t-s)/1400);e.target.textContent=Math.round(n*(1-Math.pow(1-k,3)))+"+";if(k<1)requestAnimationFrame(f)})(s)})},{threshold:.6});
+document.querySelectorAll("[data-n]").forEach(function(e){co.observe(e)});
+})();
+</script>
+</body>
+</html>

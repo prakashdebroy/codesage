@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Events — CODE SAGE</title>
+<style>
+:root{color-scheme:dark;--bg:#030504;--fg:#e8f5e4;--mut:#91a89a;--g:#7CFC5A;--line:#173a1c}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 20%,#102016 0,#050806 42%,var(--bg) 100%);color:var(--fg);font-family:"Segoe UI",system-ui,sans-serif}
+.topbar{position:sticky;top:0;z-index:50;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;border-bottom:1px solid var(--line);background:#030504ef;backdrop-filter:blur(12px)}
+.brand{font-weight:800;letter-spacing:.18em}.brand i{color:var(--g);font-style:normal}
+.back{color:var(--g);text-decoration:none;font-family:ui-monospace,monospace;font-size:13px}
+.page-links{display:flex;align-items:center;gap:18px}.page-links a{color:var(--mut);text-decoration:none;font-size:13px}.page-links a:hover{color:var(--g)}
+main{width:min(1180px,90vw);margin:auto;padding:64px 0 90px}
+.heading{text-align:center;margin-bottom:48px}.heading h1{font-size:clamp(38px,7vw,76px);margin:0;letter-spacing:-.04em}.heading span{color:var(--g);font-size:12px;letter-spacing:.25em}
+.group-title{display:inline-block;margin:0 0 16px;padding:10px 18px;border:1px solid var(--g);border-radius:4px;background:#07130a;font-size:16px}
+.events{display:grid;gap:16px;margin-bottom:64px}
+.event{display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:start;border:1px solid #24402a;border-radius:14px;padding:24px;background:linear-gradient(145deg,#101710,#080b09);box-shadow:0 12px 28px #0006}
+.event:hover{border-color:#3a7043}
+.date{color:var(--g);font-family:ui-monospace,monospace;font-size:13px}.event h2{margin:0 0 10px;font-size:24px}.event p{margin:0;color:var(--mut);line-height:1.65}
+.status{border:1px solid #2e5a37;border-radius:999px;padding:7px 10px;color:var(--g);font:11px ui-monospace,monospace;white-space:nowrap}
+.links{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px}.links a{color:var(--g);text-decoration:none;font-size:13px}.links a:hover{text-decoration:underline}
+.know-more{color:var(--g);text-decoration:none;font-size:13px}.know-more:hover{text-decoration:underline}
+@media(max-width:700px){main{width:92vw;padding-top:42px}.event{grid-template-columns:1fr;gap:10px}.status{justify-self:start}.heading{text-align:left}}
+@media(max-width:600px){.topbar{height:60px}.page-links{gap:10px}.page-links a:nth-child(1){display:none}.back{font-size:11px}.brand{font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="topbar"><div class="brand">CODE<i>/</i>SAGE</div><div class="page-links"><a href="../index.html">Home</a><a href="../team.html">Team</a><a class="back" href="../index.html">← Back</a></div></nav>
+<main>
+  <header class="heading"><span>03 / EVENTS</span><h1>Our events.</h1></header>
+  <h2 class="group-title">Upcoming Events</h2>
+  <div class="events">
+    <article class="event"><div class="date">TBA</div><div><h2>NFSU CTF Competition</h2><p>A Capture the Flag cybersecurity competition covering web security, cryptography, forensics and ethical hacking. Final date to be announced.</p></div><span class="status">UPCOMING</span></article>
+  </div>
+  <h2 class="group-title">Past Events</h2>
+  <div class="events">
+    <article class="event"><div class="date">11 SEP 2026</div><div><h2>Smart India Hackathon 2026</h2><p>Internal hackathon at NFSU Tripura Campus. Teams of exactly six members, including at least one female member, prepared problem statements and baseline presentations using the SIH template.</p><div class="links"><a href="sih-event.html">Know more →</a></div></div><span class="status">PAST</span></article>
+    <article class="event"><div class="date">PAST</div><div><h2>Code Quest</h2><p>A practical team coding competition that brought students together to solve problems and present working solutions.</p><div class="links"><a href="code-quest-event.html">Know more →</a></div></div><span class="status">CLUB EVENT</span></article>
+    <article class="event"><div class="date">PAST</div><div><h2>Poster &amp; Reel Making</h2><p>A creative content challenge focused on visual storytelling, club outreach and short-form media production.</p><div class="links"><a href="poster-reel-event.html">Know more →</a></div></div><span class="status">CLUB EVENT</span></article>
+    <article class="event"><div class="date">PAST</div><div><h2>Club Introductory Session</h2><p>An introduction to Code Sage, its technical tracks and opportunities for students to participate and contribute.</p><div class="links"><a href="introductory-session-event.html">Know more →</a></div></div><span class="status">CLUB EVENT</span></article>
+    <article class="event"><div class="date">04 SEP 2026</div><div><h2>Fund My Crazy</h2><p>An ideation and innovation event with Code Sage and Google Student Ambassadors Priyanshu Sahoo and Prasunma Das, with 70 student participants.</p><div class="links"><a href="fund-my-crazy-event.html">Know more →</a></div></div><span class="status">PAST</span></article>
+    <article class="event"><div class="date">13 MAR 2026</div><div><h2>Interactive Ethical Hacking Session</h2><p>"You do not own a thing you cannot protect." Live demonstrations of common web vulnerabilities and secure system design.</p><div class="links"><a href="hacking-event.html">Know more →</a></div></div><span class="status">PAST</span></article>
+    <article class="event"><div class="date">27 FEB 2026</div><div><h2>NFSU SMART Hackathon</h2><p>Developers came together to solve real-world problems in a coding competition.</p><div class="links"><a href="smart-hackathon-event.html">Know more →</a><a href="smart-hackathon-winners.html">Winners →</a><a href="smart-hackathon-teams.html">Teams →</a></div></div><span class="status">PAST</span></article>
+    <article class="event"><div class="date">22 AUG 2025</div><div><h2>Basic Python Programming</h2><p>A two-month structured course. 33 students attended the inaugural session, led by the Vice-President.</p><div class="links"><a class="know-more" href="python-event.html">Know more →</a></div></div><span class="status">PAST</span></article>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team — CODE SAGE</title>
+<style>
+:root{color-scheme:dark;--bg:#030504;--fg:#e8f5e4;--mut:#91a89a;--g:#7CFC5A;--line:#173a1c}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 20%,#102016 0,#050806 42%,var(--bg) 100%);color:var(--fg);font-family:"Segoe UI",system-ui,sans-serif}
+.topbar{position:sticky;top:0;z-index:50;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;border-bottom:1px solid var(--line);background:#030504ef;backdrop-filter:blur(12px)}
+.brand{font-weight:800;letter-spacing:.18em}.brand i{color:var(--g);font-style:normal}
+.back{color:var(--g);text-decoration:none;font-family:ui-monospace,monospace;font-size:13px}
+.page-links{display:flex;align-items:center;gap:18px}.page-links a{color:var(--mut);text-decoration:none;font-size:13px}.page-links a:hover{color:var(--g)}
+main{width:min(1180px,90vw);margin:auto;padding:64px 0 90px}
+.heading{text-align:center;margin-bottom:38px}.heading h1{font-size:clamp(38px,7vw,76px);margin:0;letter-spacing:-.04em}.heading span{color:var(--g);font-size:12px;letter-spacing:.25em}
+.group-title{width:max-content;margin:0 auto 28px;padding:12px 24px;border:1px solid var(--g);border-radius:4px;background:#07130a;box-shadow:0 0 24px #7CFC5A18;font-size:clamp(18px,3vw,26px)}
+.team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin-bottom:52px}
+.card{min-height:340px;border:1px solid #2b4b32;border-radius:18px;padding:18px;background:linear-gradient(145deg,#111916,#080c09);box-shadow:0 14px 30px #0009;text-align:center;transition:.25s}
+.card:hover{transform:translateY(-6px);border-color:var(--g)}
+.photo{width:100%;height:210px;border-radius:12px;overflow:hidden;background:#152018;border:1px solid #3a563f}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block}
+.card h2{font-size:20px;margin:18px 0 7px;line-height:1.25}.card p{margin:0;color:var(--mut);font-size:14px}
+.actions{display:flex;justify-content:center;gap:10px;margin-top:16px}
+.action{width:36px;height:36px;display:grid;place-items:center;border-radius:50%;border:1px solid #2e5a37;color:var(--g);text-decoration:none;font-size:12px;font-weight:800}
+.action:hover{background:var(--g);color:#031004}
+.heads{grid-template-columns:repeat(3,minmax(0,1fr));max-width:860px;margin-inline:auto}
+@media(max-width:900px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){
+  main{width:min(92vw,1180px);padding-top:42px}
+  .heading{margin-bottom:28px}
+  .heading h1{font-size:34px}
+  .group-title{margin-bottom:18px;padding:10px 18px;font-size:18px}
+  .team,.heads{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:none;margin-bottom:36px}
+  .card{min-height:270px;padding:10px;border-radius:14px}
+  .photo{height:150px;border-radius:8px}
+  .card h2{font-size:14px;margin:12px 4px 6px}
+  .card p{font-size:12px}
+  .actions{gap:7px;margin-top:10px}
+  .action{width:32px;height:32px;font-size:11px}
+}
+@media(max-width:600px){.topbar{height:60px}.page-links{gap:10px}.page-links a:nth-child(1){display:none}.back{font-size:11px}.brand{font-size:12px}}
+</style>
+</head>
+<body>
+<nav class="topbar"><div class="brand">CODE<i>/</i>SAGE</div><div class="page-links"><a href="index.html">Home</a><a href="events/events.html">Events</a><a class="back" href="index.html">← Back</a></div></nav>
+<main>
+  <header class="heading"><span>04 / TEAM</span><h1>The people behind the code.</h1></header>
+  <h2 class="group-title">Executives</h2>
+  <div class="team" id="executives"></div>
+  <h2 class="group-title">Coordinators &amp; Heads</h2>
+  <div class="team heads" id="heads"></div>
+</main>
+<script>
+var executives=[
+["Aditya Mohan Srivastav","President","assets/team/aditya.png","https://www.linkedin.com/in/aditya-stv"],
+["Chembrolu Bala Somesh","Vice President","assets/team/somesh.png","https://www.linkedin.com/in/bala-somesh-chembrolu"],
+["Tridip Baksi","Secretary","assets/team/tridip.png","https://www.linkedin.com/in/tridip-baksi-0a9749373"],
+["Hariom Singh","Joint Secretary","assets/team/hariom.png","https://www.linkedin.com/in/hariom-singh-221794296/"]];
+var heads=[
+["Prakash Debroy","Web Developer","assets/team/prakash.jpg","https://www.linkedin.com/in/prakashdroy/"],
+["Anushka S","Technical Head","assets/team/Anushka.png",""],
+["Albert Gautam","Innovation Head","assets/team/Albert.png",""],
+["Yuvraj Mishra","Documentation & Journal Head","assets/team/Yuvraj.png","https://www.linkedin.com/in/yuvraj-mishra-1ab844351"],
+["Shashank Raj","Social Media Head","assets/team/shashank.webp","https://www.linkedin.com/in/shashank-raj-213851332"],
+["Deepak Kr. Ravi","Public Relation Head","assets/team/Deepak.png","https://www.linkedin.com/in/deepak-kumar-ravi-512982350"]];
+function render(id,members){
+ document.getElementById(id).innerHTML=members.map(function(p){
+  var linkedin=p[3]?'<a class="action" href="'+p[3]+'" target="_blank" rel="noopener" title="LinkedIn">in</a>':'';
+  return '<article class="card rv"><div class="photo"><img src="'+p[2]+'" alt="'+p[0]+'"></div><h2>'+p[0]+'</h2><p>'+p[1]+'</p><div class="actions">'+linkedin+'</div></article>';
+ }).join("");
+}
+render("executives",executives);render("heads",heads);
+</script>
+</body>
+</html>
