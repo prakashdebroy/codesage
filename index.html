@@ -29,13 +29,10 @@ nav a{color:var(--mut);text-decoration:none;transition:color .2s}nav a:hover{col
 @media(max-width:600px){
   #hero .hero-lockup,#hero .lab,#hero h1,#hero p,#hero .cta{top:40px}
   #hero{padding-bottom:calc(10vh - 10px)}
-  nav{padding:12px 4vw}
-  nav b{font-size:12px}
-  nav div{position:absolute;top:58px;left:4vw;right:4vw;display:none;flex-direction:column;gap:0;padding:8px;border:1px solid var(--line);background:#050907f2;box-shadow:0 16px 36px #000b}
-  nav div.open{display:flex}
-  nav div a{padding:14px 16px;border-bottom:1px solid #173a1c55;font-size:15px}
-  nav div a:last-child{border-bottom:0}
-  .menu-toggle{display:grid!important}
+  nav{justify-content:center;padding:12px 2vw;background:#030504cc}
+  nav div{position:static;display:flex!important;flex-direction:row;justify-content:center;gap:clamp(8px,3vw,14px);margin:0;padding:0;width:100%;border:0;background:none;box-shadow:none}
+  nav div a{padding:6px 2px;border:0;font-size:11px;white-space:nowrap}
+  .menu-toggle{display:none!important}
 }
 .menu-toggle{display:none;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:4px;background:#050907cc;color:var(--g);font-size:20px;cursor:pointer}
 #hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 5vw 10vh}
@@ -200,9 +197,8 @@ function boot(img){
  vertexShader:"uniform float uT,uS,uSize;uniform vec2 uM;attribute vec3 aR;varying float vF;varying float vA;void main(){vec3 p=position;"+
  "p.z+=(aR.z-.5)*.28+sin(uT*.8+aR.x*6.28)*.025;"+
  "p.xy+=vec2(sin(uT+aR.y*6.28),cos(uT*.9+aR.x*6.28))*.007;"+
- "vec2 dm=p.xy-uM;float dist=length(dm);float f=smoothstep(1.5,0.,dist);p.xy+=normalize(dm+vec2(1e-4))*f*1.05;p.z+=f*1.4;"+
- "p+=(aR-.5)*uS*4.;vF=f;vA=1.-uS;vec4 mv=modelViewMatrix*vec4(p,1.);gl_PointSize=uSize*(.65+aR.x*.4)*(1.+f*1.35)/-mv.z;gl_Position=projectionMatrix*mv;}",
- fragmentShader:"varying float vF;varying float vA;void main(){float r=length(gl_PointCoord-.5);if(r>.5)discard;float a=smoothstep(.5,.05,r);vec3 col=mix(vec3(.486,.988,.353),vec3(.9,1.,.85),vF);gl_FragColor=vec4(col,a*.95*vA);}"});
+ "p+=(aR-.5)*uS*4.;vF=0.;vA=1.-uS;vec4 mv=modelViewMatrix*vec4(p,1.);gl_PointSize=uSize*(.65+aR.x*.4)/-mv.z;gl_Position=projectionMatrix*mv;}",
+ fragmentShader:"varying float vF;varying float vA;void main(){float r=length(gl_PointCoord-.5);if(r>.5)discard;float a=smoothstep(.5,.05,r);gl_FragColor=vec4(vec3(.486,.988,.353),a*.95*vA);}"});
  var pts=new T.Points(g,mat);S.add(pts);
  var wide=true;
  function rs(){var w=cv.clientWidth,h=cv.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix();
