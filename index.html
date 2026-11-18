@@ -27,6 +27,7 @@ nav b{letter-spacing:.2em;font-size:14px}nav b i{color:var(--g);font-style:norma
 nav div{display:flex;gap:28px;font-size:16px;margin-left:auto}
 nav a{color:var(--mut);text-decoration:none;transition:color .2s}nav a:hover{color:var(--g)}
 @media(max-width:600px){
+  #hero .hero-lockup,#hero .lab,#hero h1,#hero p,#hero .cta{top:40px}
   #hero{padding-bottom:calc(10vh - 10px)}
   nav{padding:12px 4vw}
   nav b{font-size:12px}
@@ -67,7 +68,7 @@ section{padding:12vh 5vw}
 .m{display:grid;grid-template-columns:76px 1fr;column-gap:14px;align-items:center;border:1px solid var(--line);padding:16px}.m i{display:grid;place-items:center;grid-row:1 / span 3;width:76px;height:76px;border:1px solid var(--g);border-radius:50%;overflow:hidden}.m i img{width:100%;height:100%;display:block;object-fit:cover}
 .m b{display:block}.m span{color:var(--mut);font-size:13px}
 @media(max-width:600px){
-  .hero-lockup{position:relative;top:auto;left:auto;z-index:3;margin:0 0 10px;transform:none}
+  .hero-lockup{position:relative;top:0;left:auto;z-index:3;margin:0 0 10px;transform:none}
   .nfsu-logo{width:clamp(150px,46vw,190px)}
   #hero .lab{font-size:9px;letter-spacing:.16em;white-space:nowrap}
   .team{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
