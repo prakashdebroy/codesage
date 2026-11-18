@@ -23,7 +23,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:"Space Grotesk","
 
 nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;background:linear-gradient(#030504ee,#03050400)}
 nav b{letter-spacing:.2em;font-size:14px}nav b i{color:var(--g);font-style:normal}
-nav div{display:flex;gap:22px;font-size:13px}
+nav div{display:flex;gap:28px;font-size:16px;margin-left:auto}
 nav a{color:var(--mut);text-decoration:none;transition:color .2s}nav a:hover{color:var(--g)}
 @media(max-width:600px){
   #hero{padding-bottom:calc(10vh - 10px)}
@@ -31,7 +31,7 @@ nav a{color:var(--mut);text-decoration:none;transition:color .2s}nav a:hover{col
   nav b{font-size:12px}
   nav div{position:absolute;top:58px;left:4vw;right:4vw;display:none;flex-direction:column;gap:0;padding:8px;border:1px solid var(--line);background:#050907f2;box-shadow:0 16px 36px #000b}
   nav div.open{display:flex}
-  nav div a{padding:12px 14px;border-bottom:1px solid #173a1c55;font-size:13px}
+  nav div a{padding:14px 16px;border-bottom:1px solid #173a1c55;font-size:15px}
   nav div a:last-child{border-bottom:0}
   .menu-toggle{display:grid!important}
 }
@@ -88,7 +88,7 @@ footer{padding:28px 5vw;color:var(--mut);font-size:12px;display:flex;justify-con
   </div>
 </div>
 
-<nav><b>CODE<i>/</i>SAGE</b><div id="main-menu"><a href="#about">About</a><a href="#do">What we do</a><a href="events/events.html">Events</a><a href="team.html">Team</a><a href="#join">Join</a></div><button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-menu">☰</button></nav>
+<nav><div id="main-menu"><a href="#about">About</a><a href="#do">What we do</a><a href="events/events.html">Events</a><a href="team.html">Team</a><a href="#join">Join</a></div><button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-menu">☰</button></nav>
 
 <header id="hero">
 <canvas id="cv"></canvas>
