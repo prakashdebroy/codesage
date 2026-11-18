@@ -197,7 +197,7 @@ function boot(img){
  vertexShader:"uniform float uT,uS,uSize;uniform vec2 uM;attribute vec3 aR;varying float vF;varying float vA;void main(){vec3 p=position;"+
  "p.z+=(aR.z-.5)*.28+sin(uT*.8+aR.x*6.28)*.025;"+
  "p.xy+=vec2(sin(uT+aR.y*6.28),cos(uT*.9+aR.x*6.28))*.007;"+
- "p+=(aR-.5)*uS*4.;vF=0.;vA=1.-uS;vec4 mv=modelViewMatrix*vec4(p,1.);gl_PointSize=uSize*(.65+aR.x*.4)/-mv.z;gl_Position=projectionMatrix*mv;}",
+ "p+=(aR-.5)*uS*8.;vF=0.;vA=1.-smoothstep(.15,.95,uS);vec4 mv=modelViewMatrix*vec4(p,1.);gl_PointSize=uSize*(.65+aR.x*.4)*(1.-uS*.25)/-mv.z;gl_Position=projectionMatrix*mv;}",
  fragmentShader:"varying float vF;varying float vA;void main(){float r=length(gl_PointCoord-.5);if(r>.5)discard;float a=smoothstep(.5,.05,r);gl_FragColor=vec4(vec3(.486,.988,.353),a*.95*vA);}"});
  var pts=new T.Points(g,mat);S.add(pts);
  var wide=true;
@@ -222,7 +222,7 @@ function boot(img){
   var s=pts.scale.x;
   U.uT.value=clk.getElapsedTime();U.uS.value+=(sp-U.uS.value)*.1;
   U.uM.value.set(M.tx>50?99:(M.tx*rs.hw-pts.position.x)/s,M.ty>50?99:(M.ty*rs.hh-pts.position.y)/s);
-  pts.rotation.y+=(M.rx*.3-pts.rotation.y)*.06;pts.rotation.x+=(-M.ry*.18-pts.rotation.x)*.06;
+  pts.rotation.y+=(M.rx*.65-pts.rotation.y)*.09;pts.rotation.x+=(-M.ry*.42-pts.rotation.x)*.09;
   R.render(S,C)})();
 }
 
