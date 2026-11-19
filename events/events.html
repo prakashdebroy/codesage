@@ -8,47 +8,123 @@
 <style>
 :root{color-scheme:dark;--bg:#030504;--fg:#e8f5e4;--mut:#91a89a;--g:#7CFC5A;--line:#173a1c}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 20%,#102016 0,#050806 42%,var(--bg) 100%);color:var(--fg);font-family:"Segoe UI",system-ui,sans-serif}
-.topbar{position:sticky;top:0;z-index:50;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;border-bottom:1px solid var(--line);background:#030504ef;backdrop-filter:blur(12px)}
-.brand{font-weight:800;letter-spacing:.18em}.brand i{color:var(--g);font-style:normal}
-.back{color:var(--g);text-decoration:none;font-family:ui-monospace,monospace;font-size:13px}
-.page-links{display:flex;align-items:center;gap:18px}.page-links a{color:var(--mut);text-decoration:none;font-size:13px}.page-links a:hover{color:var(--g)}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 20%,#102016 0,#050806 42%,var(--bg) 100%);color:var(--fg);font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif}
+@keyframes page-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:no-preference){.heading{animation:page-in .7s ease-out both}.events{animation:page-in .7s ease-out both}.events:nth-of-type(2){animation-delay:.12s}.events:nth-of-type(3){animation-delay:.24s}.event{animation:page-in .6s ease-out both}.event:nth-child(2){animation-delay:.08s}.event:nth-child(3){animation-delay:.16s}.event:nth-child(4){animation-delay:.24s}.event:nth-child(5){animation-delay:.32s}.event:nth-child(6){animation-delay:.4s}.event:nth-child(7){animation-delay:.48s}}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px 5vw;background:linear-gradient(#030504ee,#03050400)}
+.brand{font-size:14px;font-weight:800;letter-spacing:.2em}.brand i{color:var(--g);font-style:normal}
+.back{color:var(--g);text-decoration:none;font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif;font-size:16px;transition:color .2s}
+.page-links{display:flex;align-items:center;gap:28px}.page-links a{color:var(--mut);text-decoration:none;font-size:16px;transition:color .2s}.page-links a:hover{color:var(--g)}
 main{width:min(1180px,90vw);margin:auto;padding:64px 0 90px}
 .heading{text-align:center;margin-bottom:48px}.heading h1{font-size:clamp(38px,7vw,76px);margin:0;letter-spacing:-.04em}.heading span{color:var(--g);font-size:12px;letter-spacing:.25em}
 .group-title{display:inline-block;margin:0 0 16px;padding:10px 18px;border:1px solid var(--g);border-radius:4px;background:#07130a;font-size:16px}
 .events{display:grid;gap:16px;margin-bottom:64px}
-.event{display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:start;border:1px solid #24402a;border-radius:14px;padding:24px;background:linear-gradient(145deg,#101710,#080b09);box-shadow:0 12px 28px #0006}
+.event{display:grid;grid-template-columns:180px 1fr auto;gap:24px;align-items:start;border:1px solid #24402a;border-radius:14px;padding:24px;background:linear-gradient(145deg,#101710,#080b09);box-shadow:0 12px 28px #0006}
 .event:hover{border-color:#3a7043}
+.event-image{width:180px;height:110px;position:relative;overflow:hidden;border:1px solid #31583a;border-radius:8px;background:#080b09}
+.event-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity .45s ease,transform 1s ease}
+.event-image img.active{opacity:1;transform:scale(1)}
+.event-image.clickable{cursor:pointer}
+.event-image.clickable:focus-visible{outline:2px solid var(--g);outline-offset:3px}
 .date{color:var(--g);font-family:ui-monospace,monospace;font-size:13px}.event h2{margin:0 0 10px;font-size:24px}.event p{margin:0;color:var(--mut);line-height:1.65}
 .status{border:1px solid #2e5a37;border-radius:999px;padding:7px 10px;color:var(--g);font:11px ui-monospace,monospace;white-space:nowrap}
 .links{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px}.links a{color:var(--g);text-decoration:none;font-size:13px}.links a:hover{text-decoration:underline}
 .know-more{color:var(--g);text-decoration:none;font-size:13px}.know-more:hover{text-decoration:underline}
-@media(max-width:700px){main{width:92vw;padding-top:42px}.event{grid-template-columns:1fr;gap:10px}.status{justify-self:start}.heading{text-align:left}}
-@media(max-width:600px){.topbar{height:60px}.page-links{gap:10px}.page-links a:nth-child(1){display:none}.back{font-size:11px}.brand{font-size:12px}}
+@media(max-width:700px){main{width:92vw;padding-top:42px}.event{grid-template-columns:1fr;gap:10px}.event-image{width:100%;height:190px}.status{justify-self:start}.heading{text-align:left}}
+@media(max-width:600px){.topbar{justify-content:center;padding:12px 2vw;background:#030504cc}.brand{display:none}.page-links{gap:clamp(8px,3vw,14px);width:100%;justify-content:center}.page-links a{font-size:11px;white-space:nowrap}}
 </style>
 </head>
 <body>
-<nav class="topbar"><div class="brand">CODE<i>/</i>SAGE</div><div class="page-links"><a href="../index.html">Home</a><a href="../team.html">Team</a><a class="back" href="../index.html">← Back</a></div></nav>
+<nav class="topbar"><div class="brand">CODE<i>/</i>SAGE</div><div class="page-links"><a href="../index.html#about">About</a><a href="../index.html#do">What we do</a><a href="events.html">Events</a><a href="../team.html">Team</a><a href="../index.html#join">Join</a></div></nav>
 <main>
   <header class="heading"><span>03 / EVENTS</span><h1>Our events.</h1></header>
   <h2 class="group-title">Upcoming Events</h2>
   <div class="events">
-    <article class="event"><div class="date">TBA</div><div><h2>NFSU CTF Competition</h2><p>A Capture the Flag cybersecurity competition covering web security, cryptography, forensics and ethical hacking. Final date to be announced.</p></div><span class="status">UPCOMING</span></article>
+    <article class="event"><div><div class="event-image" data-images="../assets/events/coming_soon.jpg"><img src="../assets/events/coming_soon.jpg" alt="NFSU CTF Competition coming soon" class="active"></div></div><div><h2>NFSU CTF Competition</h2><p>A Capture the Flag cybersecurity competition covering web security, cryptography, forensics and ethical hacking. Final date to be announced.</p></div><span class="status">UPCOMING</span></article>
   </div>
   <h2 class="group-title">Ongoing Events</h2>
   <div class="events">
-    <article class="event"><div class="date">ONGOING</div><div><h2>Poster &amp; Reel Making Competition</h2><p>A creative ongoing competition featuring visual storytelling, club outreach and short-form media production.</p><div class="links"><a href="poster-reel-event.html">Know more →</a></div></div><span class="status">ONGOING</span></article>
+    <article class="event"><div><div class="event-image" data-images="../assets/events/poster_reel_making_8/banner.jpeg"><img src="../assets/events/poster_reel_making_8/banner.jpeg" alt="Poster and Reel Making Competition" class="active"></div></div><div><h2>Poster &amp; Reel Making Competition</h2><p>A creative ongoing competition featuring visual storytelling, club outreach and short-form media production.</p><div class="links"><a href="poster-reel-event.html">Know more →</a></div></div><span class="status">ONGOING</span></article>
   </div>
   <h2 class="group-title">Past Events</h2>
   <div class="events">
-    <article class="event"><div class="date">28 SEP 2026</div><div><h2>Club Introductory Session</h2><p>An introduction to Code Sage, its technical tracks and opportunities for students to participate and contribute.</p><div class="links"><a href="introductory-session-event.html">Know more →</a></div></div><span class="status">PAST</span></article>
-    <article class="event"><div class="date">11 SEP 2026</div><div><h2>Smart India Hackathon 2026</h2><p>Internal hackathon at NFSU Tripura Campus. Teams of exactly six members, including at least one female member, prepared problem statements and baseline presentations using the SIH template.</p><div class="links"><a href="sih-event.html">Know more →</a></div></div><span class="status">PAST</span></article>
-    <article class="event"><div class="date">04 SEP 2026</div><div><h2>Fund My Crazy</h2><p>An ideation and innovation event with Code Sage and Google Student Ambassadors Priyanshu Sahoo and Prasunma Das, with 70 student participants.</p><div class="links"><a href="fund-my-crazy-event.html">Know more →</a></div></div><span class="status">PAST</span></article>
-    <article class="event"><div class="date">13 MAR 2026</div><div><h2>Interactive Ethical Hacking Session</h2><p>"You do not own a thing you cannot protect." Live demonstrations of common web vulnerabilities and secure system design.</p><div class="links"><a href="hacking-event.html">Know more →</a></div></div><span class="status">PAST</span></article>
-    <article class="event"><div class="date">27 FEB 2026</div><div><h2>NFSU SMART Hackathon</h2><p>Developers came together to solve real-world problems in a coding competition.</p><div class="links"><a href="smart-hackathon-event.html">Know more →</a><a href="smart-hackathon-winners.html">Winners →</a><a href="smart-hackathon-teams.html">Teams →</a></div></div><span class="status">PAST</span></article>
-    <article class="event"><div class="date">22 SEP 2025</div><div><h2>Code Quest</h2><p>A practical team coding competition that brought students together to solve problems and present working solutions.</p><div class="links"><a href="code-quest-event.html">Know more →</a></div></div><span class="status">PAST</span></article>
-    <article class="event"><div class="date">22 AUG 2025</div><div><h2>Basic Python Programming</h2><p>A two-month structured course. 33 students attended the inaugural session, led by the Vice-President.</p><div class="links"><a class="know-more" href="python-event.html">Know more →</a></div></div><span class="status">PAST</span></article>
+    <article class="event"><div><div class="event-image" data-images="../assets/events/introductory_session_7/banner.jpeg"><img src="../assets/events/introductory_session_7/banner.jpeg" alt="Club Introductory Session" class="active"></div></div><div><h2>Club Introductory Session</h2><p>An introduction to Code Sage, its technical tracks and opportunities for students to participate and contribute.</p><div class="links"><a href="introductory-session-event.html">Know more →</a></div></div><span class="status">28 SEP 2026</span></article>
+    <article class="event"><div><div class="event-image" data-images="../assets/events/SIH_6/banner.jpeg|../assets/events/SIH_6/audience.jpeg|../assets/events/SIH_6/director.jpeg|../assets/events/SIH_6/group.jpeg|../assets/events/SIH_6/sih.jpeg"><img src="../assets/events/SIH_6/banner.jpeg" alt="Smart India Hackathon 2026" class="active"></div></div><div><h2>Smart India Hackathon 2026</h2><p>Internal hackathon at NFSU Tripura Campus. Teams of exactly six members, including at least one female member, prepared problem statements and baseline presentations using the SIH template.</p><div class="links"><a href="sih-event.html">Know more →</a></div></div><span class="status">11 SEP 2026</span></article>
+    <article class="event"><div><div class="event-image" data-images="../assets/events/fund_my_crazy_5/banner.jpeg|../assets/events/fund_my_crazy_5/a.jpeg|../assets/events/fund_my_crazy_5/group.jpeg|../assets/events/fund_my_crazy_5/prize.jpeg|../assets/events/fund_my_crazy_5/prize_2.jpeg"><img src="../assets/events/fund_my_crazy_5/banner.jpeg" alt="Fund My Crazy" class="active"></div></div><div><h2>Fund My Crazy</h2><p>An ideation and innovation event with Code Sage and Google Student Ambassadors Priyanshu Sahoo and Prasunma Das, with 70 student participants.</p><div class="links"><a href="fund-my-crazy-event.html">Know more →</a></div></div><span class="status">04 SEP 2026</span></article>
+    <article class="event"><div><div class="event-image" data-images="../assets/events/hacking_session_4/hacking_session_banner.jpeg|../assets/events/hacking_session_4/hacking_session_audience.jpeg|../assets/events/hacking_session_4/hacking_session_code.jpeg|../assets/events/hacking_session_4/hacking_session_group_photo.jpeg"><img src="../assets/events/hacking_session_4/hacking_session_banner.jpeg" alt="Interactive Ethical Hacking" class="active"></div></div><div><h2>Interactive Ethical Hacking Session</h2><p>"You do not own a thing you cannot protect." Live demonstrations of common web vulnerabilities and secure system design.</p><div class="links"><a href="hacking-event.html">Know more →</a></div></div><span class="status">13 MAR 2026</span></article>
+    <article class="event"><div><div class="event-image" data-images="../assets/events/Smart_Campus_hackathon_3/banner.jpeg|../assets/events/Smart_Campus_hackathon_3/group_photo.jpeg|../assets/events/Smart_Campus_hackathon_3/1st_prize.jpeg|../assets/events/Smart_Campus_hackathon_3/2nd_prize.jpeg|../assets/events/Smart_Campus_hackathon_3/3rd%20prize.jpeg"><img src="../assets/events/Smart_Campus_hackathon_3/banner.jpeg" alt="NFSU SMART Hackathon" class="active"></div></div><div><h2>NFSU SMART Hackathon</h2><p>Developers came together to solve real-world problems in a coding competition.</p><div class="links"><a href="smart-hackathon-event.html">Know more →</a><a href="smart-hackathon-winners.html">Winners →</a><a href="smart-hackathon-teams.html">Teams →</a></div></div><span class="status">27 FEB 2026</span></article>
+    <article class="event"><div><div class="event-image" data-images="../assets/events/code_quest_2/banner.jpeg|../assets/events/code_quest_2/audience.jpeg|../assets/events/code_quest_2/team.jpeg|../assets/events/code_quest_2/winner_first.jpeg|../assets/events/code_quest_2/winner_second.jpeg|../assets/events/code_quest_2/winner_third.jpeg|../assets/events/code_quest_2/audience_2.jpeg"><img src="../assets/events/code_quest_2/banner.jpeg" alt="Code Quest" class="active"></div></div><div><h2>Code Quest</h2><p>A practical team coding competition that brought students together to solve problems and present working solutions.</p><div class="links"><a href="code-quest-event.html">Know more →</a></div></div><span class="status">22 SEP 2025</span></article>
+    <article class="event"><div><div class="event-image" data-images="../assets/events/python_1/banner.jpeg|../assets/events/python_1/python_1.jpeg|../assets/events/python_1/python_2.jpeg|../assets/events/python_1/audience.jpeg|../assets/events/python_1/audience_2.jpeg"><img src="../assets/events/python_1/banner.jpeg" alt="Basic Python Programming" class="active"></div></div><div><h2>Basic Python Programming</h2><p>A two-month structured course. 33 students attended the inaugural session, led by the Vice-President.</p><div class="links"><a class="know-more" href="python-event.html">Know more →</a></div></div><span class="status">22 AUG 2025</span></article>
   </div>
 </main>
+<script>
+(function(){
+ var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ if(reduced)return;
+
+ document.querySelectorAll(".event-image").forEach(function(container){
+  var sources=(container.dataset.images||"").split("|").filter(Boolean);
+  var eventCard=container.closest(".event");
+  var knowMore=eventCard?eventCard.querySelector(".links a"):null;
+
+  if(knowMore){
+   container.classList.add("clickable");
+   container.setAttribute("role","link");
+   container.setAttribute("tabindex","0");
+   container.setAttribute("aria-label","Know more: "+eventCard.querySelector("h2").textContent);
+   container.addEventListener("click",function(){
+    window.location.href=knowMore.getAttribute("href");
+   });
+   container.addEventListener("keydown",function(event){
+    if(event.key==="Enter"||event.key===" "){
+     event.preventDefault();
+     window.location.href=knowMore.getAttribute("href");
+    }
+   });
+  }
+
+  if(sources.length<2)return;
+
+  var current=0;
+  var first=container.querySelector("img");
+  var images=[first];
+
+  sources.forEach(function(src,index){
+   if(index===0){
+    first.src=src;
+    first.classList.add("active");
+    return;
+   }
+   var image=document.createElement("img");
+   image.src=src;
+   image.alt=first.alt;
+   image.loading="eager";
+   container.appendChild(image);
+   images.push(image);
+  });
+
+  var timer=setInterval(function(){
+   var next=(current+1)%images.length;
+   images[current].classList.remove("active");
+   images[next].classList.add("active");
+   current=next;
+  },2000);
+
+  document.addEventListener("visibilitychange",function(){
+   if(document.hidden){
+    clearInterval(timer);
+   }else{
+    clearInterval(timer);
+    timer=setInterval(function(){
+     var next=(current+1)%images.length;
+     images[current].classList.remove("active");
+     images[next].classList.add("active");
+     current=next;
+    },2000);
+   }
+  });
+ });
+})();
+</script>
 </body>
 </html>

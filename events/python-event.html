@@ -8,10 +8,10 @@
 <style>
 :root{color-scheme:dark;--bg:#030504;--fg:#e8f5e4;--mut:#a5b6a7;--g:#7CFC5A;--line:#173a1c}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:radial-gradient(circle at 70% 20%,#14291a 0,#060907 42%,var(--bg) 100%);color:var(--fg);font-family:"Segoe UI",system-ui,sans-serif}
-.topbar{position:sticky;top:0;z-index:50;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;border-bottom:1px solid var(--line);background:#030504ef;backdrop-filter:blur(12px)}
-.brand{font-weight:800;letter-spacing:.18em}.brand i{color:var(--g);font-style:normal}
-.back{color:var(--g);text-decoration:none;font:13px ui-monospace,monospace}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 70% 20%,#14291a 0,#060907 42%,var(--bg) 100%);color:var(--fg);font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;height:68px;display:flex;align-items:center;justify-content:space-between;padding:14px 5vw;border:0;background:linear-gradient(#030504ee,#03050400);font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif}
+.brand{font-size:14px;font-weight:800;letter-spacing:.2em}.brand i{color:var(--g);font-style:normal}
+.back{color:var(--g);text-decoration:none;font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif;font-size:16px;transition:color .2s}
 main{width:min(1180px,92vw);margin:auto;padding:48px 0 80px}
 .hero{display:grid;grid-template-columns:minmax(280px,.9fr) minmax(420px,1.1fr);min-height:420px;border:1px solid #31583a;border-radius:6px;overflow:hidden;background:#080c09}
 .image{min-height:420px}.image img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85) contrast(1.05)}
@@ -23,6 +23,7 @@ main{width:min(1180px,92vw);margin:auto;padding:48px 0 80px}
 .details{margin-top:28px}.details p{margin:0 0 12px}
 .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}.gallery img{width:100%;height:280px;object-fit:cover;border:1px solid #31583a;border-radius:6px}
 @media(max-width:800px){main{width:94vw;padding-top:24px}.hero{grid-template-columns:1fr}.image{min-height:260px;height:260px}.intro{padding:28px 24px;border-left:0;border-top:1px solid #253a29}.overview{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}.gallery img{height:220px}.topbar{height:60px}}
+@media(max-width:600px){.topbar{justify-content:center;padding:12px 2vw;background:#030504cc}.brand{display:none}.back{font-size:11px}}
 </style>
 </head>
 <body>

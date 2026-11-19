@@ -8,11 +8,13 @@
 <style>
 :root{color-scheme:dark;--bg:#030504;--fg:#e8f5e4;--mut:#91a89a;--g:#7CFC5A;--line:#173a1c}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 20%,#102016 0,#050806 42%,var(--bg) 100%);color:var(--fg);font-family:"Segoe UI",system-ui,sans-serif}
-.topbar{position:sticky;top:0;z-index:50;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;border-bottom:1px solid var(--line);background:#030504ef;backdrop-filter:blur(12px)}
-.brand{font-weight:800;letter-spacing:.18em}.brand i{color:var(--g);font-style:normal}
-.back{color:var(--g);text-decoration:none;font-family:ui-monospace,monospace;font-size:13px}
-.page-links{display:flex;align-items:center;gap:18px}.page-links a{color:var(--mut);text-decoration:none;font-size:13px}.page-links a:hover{color:var(--g)}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 20%,#102016 0,#050806 42%,var(--bg) 100%);color:var(--fg);font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif}
+@keyframes page-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:no-preference){.heading{animation:page-in .7s ease-out both}.group-title{animation:page-in .6s ease-out both}.team .card{animation:page-in .6s ease-out both}.team .card:nth-child(2){animation-delay:.08s}.team .card:nth-child(3){animation-delay:.16s}.team .card:nth-child(4){animation-delay:.24s}.team .card:nth-child(5){animation-delay:.32s}.team .card:nth-child(6){animation-delay:.4s}}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px 5vw;background:linear-gradient(#030504ee,#03050400)}
+.brand{font-size:14px;font-weight:800;letter-spacing:.2em}.brand i{color:var(--g);font-style:normal}
+.back{color:var(--g);text-decoration:none;font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif;font-size:16px;transition:color .2s}
+.page-links{display:flex;align-items:center;gap:28px}.page-links a{color:var(--mut);text-decoration:none;font-size:16px;transition:color .2s}.page-links a:hover{color:var(--g)}
 main{width:min(1180px,90vw);margin:auto;padding:64px 0 90px}
 .heading{text-align:center;margin-bottom:38px}.heading h1{font-size:clamp(38px,7vw,76px);margin:0;letter-spacing:-.04em}.heading span{color:var(--g);font-size:12px;letter-spacing:.25em}
 .group-title{width:max-content;margin:0 auto 28px;padding:12px 24px;border:1px solid var(--g);border-radius:4px;background:#07130a;box-shadow:0 0 24px #7CFC5A18;font-size:clamp(18px,3vw,26px)}
@@ -40,11 +42,11 @@ main{width:min(1180px,90vw);margin:auto;padding:64px 0 90px}
   .actions{gap:7px;margin-top:10px}
   .action{width:32px;height:32px;font-size:11px}
 }
-@media(max-width:600px){.topbar{height:60px}.page-links{gap:10px}.page-links a:nth-child(1){display:none}.back{font-size:11px}.brand{font-size:12px}}
+@media(max-width:600px){.topbar{justify-content:center;padding:12px 2vw;background:#030504cc}.brand{display:none}.page-links{gap:clamp(8px,3vw,14px);width:100%;justify-content:center}.page-links a{font-size:11px;white-space:nowrap}}
 </style>
 </head>
 <body>
-<nav class="topbar"><div class="brand">CODE<i>/</i>SAGE</div><div class="page-links"><a href="index.html">Home</a><a href="events/events.html">Events</a><a class="back" href="index.html">← Back</a></div></nav>
+<nav class="topbar"><div class="brand">CODE<i>/</i>SAGE</div><div class="page-links"><a href="index.html#about">About</a><a href="index.html#do">What we do</a><a href="events/events.html">Events</a><a href="team.html">Team</a><a href="index.html#join">Join</a></div></nav>
 <main>
   <header class="heading"><span>04 / TEAM</span><h1>The people behind the code.</h1></header>
   <h2 class="group-title">Executives</h2>
