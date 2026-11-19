@@ -22,12 +22,13 @@ main{width:min(1180px,92vw);margin:auto;padding:48px 0 80px}
 .highlights ul{margin:0;padding:0;display:grid;gap:10px}.highlights li{list-style:none;color:#c5d2c7;font-size:13px}.highlights li:before{content:"+";margin-right:9px;color:var(--g);font-family:ui-monospace,monospace}
 .details{margin-top:28px}.details p{margin:0 0 12px}
 .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}.gallery img{width:100%;height:280px;object-fit:cover;border:1px solid #31583a;border-radius:6px}
+.gallery img{cursor:zoom-in}
 @media(max-width:800px){main{width:94vw;padding-top:24px}.hero{grid-template-columns:1fr}.image{min-height:260px;height:260px}.intro{padding:28px 24px;border-left:0;border-top:1px solid #253a29}.overview{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}.gallery img{height:220px}.topbar{height:60px}}
 @media(max-width:600px){.topbar{justify-content:center;padding:12px 2vw;background:#030504cc}.brand{display:none}.back{font-size:11px}}
 </style>
 </head>
 <body>
-<nav class="topbar"><div class="brand">CODE<i>/</i>SAGE</div><a class="back" href="events.html">← Back to Events</a></nav>
+<nav class="topbar"><div class="brand"><a href="../index.html" aria-label="Code Sage home" style="color:inherit;text-decoration:none">CODE<i>/</i>SAGE</a></div><a class="back" href="events.html">← Back to Events</a></nav>
 <main>
   <section class="hero">
     <div class="image"><img src="../assets/events/python_1/banner.jpeg" alt="Basic Python Programming course"></div>
@@ -40,5 +41,6 @@ main{width:min(1180px,92vw);margin:auto;padding:48px 0 80px}
   <section class="panel details"><h2>Event Details</h2><p>On the inaugural day, a total of 33 students attended the session, where the fundamentals of Python were introduced and explained comprehensively by the Vice-President of the Coding Club. The course was structured to provide a solid foundation in Python programming, making it accessible to students of all backgrounds and experience levels.</p><p>This initiative demonstrates the club's commitment to nurturing technical talent and fostering continuous learning. The Python course served as an excellent stepping stone for students interested in programming and software development.</p></section>
   <section class="gallery" aria-label="Python course photo gallery"><img src="../assets/events/python_1/python_1.jpeg" alt="Python course session"><img src="../assets/events/python_1/python_2.jpeg" alt="Students during Python course"><img src="../assets/events/python_1/audience.jpeg" alt="Python course audience"><img src="../assets/events/python_1/audience_2.jpeg" alt="Second Python course audience view"></section>
 </main>
+<script src="gallery-lightbox.js"></script>
 </body>
 </html>
